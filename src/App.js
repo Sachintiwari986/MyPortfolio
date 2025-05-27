@@ -1,13 +1,32 @@
 import { useState } from 'react';
 import Header from './components/Header';
-import Navbar from './components/Navbar';
+import Navbar from './components/PortfolioNavbar';
 import About from './components/About';
 import Skills from './components/skills';
 import Experience from './components/Experience';
 import Education from './components/Education';
 import Contact from './components/contact';
+import Projects from './components/Projects';
+import './App.css';
+import { useRef } from 'react';
+
+
+
 
 function App() {
+
+  const aboutRef = useRef(null);
+  const skillsRef = useRef(null);
+  const experienceRef = useRef(null);
+  const educationRef = useRef(null);
+  const projectsRef = useRef(null);
+  const contactRef = useRef(null);
+
+  const scrollToSection = (ref) => {
+    ref.current?.scrollIntoView({ behavior: 'smooth' });
+  };
+
+
   const [darkMode, setDarkMode] = useState(false);
 
   const toggleTheme = () => {
@@ -15,19 +34,41 @@ function App() {
   };
 
   return (
-    <div className={darkMode ? 'app dark' : 'app'}>
-      <button onClick={toggleTheme}>
-        {darkMode ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
-      </button>
-      <Navbar />
-      <Header />
-      <About />
-      <Skills />
-      <Experience />
-      <Education />
-      <Contact />
+    <>
 
-    </div>
+      <Navbar
+        scrollToSection={scrollToSection}
+        refs={{
+          aboutRef,
+          skillsRef,
+          projectsRef,
+          experienceRef,
+          educationRef,
+          contactRef
+        }}
+      />
+
+      <div className="container mt-5">
+        <div ref={aboutRef}><About /></div>
+        <div ref={skillsRef}><Skills /></div>
+        <div ref={projectsRef}><Projects /></div>
+        <div ref={experienceRef}><Experience /></div>
+        <div ref={educationRef}><Education /></div>
+      </div>
+
+      <div ref={contactRef}><Contact /></div>
+
+      {/* <Navbar /> */}
+
+      {/* <Header /> */}
+      {/* <About />
+      <Skills />
+      <Experience /> 
+      <Projects />
+      <Education />
+      <Contact /> */}
+
+    </>
   );
 }
 

@@ -49,3 +49,7 @@
   background-color: #1a202c;
   color: white;
 }
+
+html {
+  scroll-behavior: smooth;
+}
