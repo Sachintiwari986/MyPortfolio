@@ -1,28 +1,8 @@
-// import styles from './Navbar.module.css';
+import { Navbar, Nav, Container, Button } from 'react-bootstrap';
 
-// function PortfolioNavbar() {
-//     return (
-//         <nav className={styles.navbar}>
-//             <div className={styles.logo}>Sachin Tiwari</div>
-//             <ul className={styles.navLinks}>
-//                 <li><a href="#about">About</a></li>
-//                 <li><a href="#skills">Skills</a></li>
-//                 <li><a href="#experience">Experience</a></li>
-//                 <li><a href="#education">Education</a></li>
-//                 <li><a href="#contact">Contact</a></li>
-//             </ul>
-//         </nav>
-//     );
-// }
-
-// export default PortfolioNavbar;
-
-
-import { Navbar, Nav, Container } from 'react-bootstrap';
-
-function PortfolioNavbar({ scrollToSection, refs }) {
+function PortfolioNavbar({ scrollToSection, refs, toggleTheme, darkMode }) {
     return (
-        <Navbar bg="dark" variant="dark" expand="lg" sticky="top">
+        <Navbar bg={darkMode ? "dark" : "light"} variant={darkMode ? "dark" : "light"} expand="lg" sticky="top">
             <Container>
                 <Navbar.Brand href="#">Sachin Tiwari</Navbar.Brand>
                 <Navbar.Toggle aria-controls="main-navbar" />
@@ -35,6 +15,9 @@ function PortfolioNavbar({ scrollToSection, refs }) {
                         <Nav.Link onClick={() => scrollToSection(refs.educationRef)}>Education</Nav.Link>
                         <Nav.Link onClick={() => scrollToSection(refs.contactRef)}>Contact</Nav.Link>
                         <Nav.Link href="/SachinTiwari_Resume.pdf" download>Download Resume</Nav.Link>
+                        <Button variant={darkMode ? 'light' : 'dark'} size="sm" onClick={toggleTheme} className="ms-3">
+                            {darkMode ? '☀️ Light' : '🌙 Dark'}
+                        </Button>
                     </Nav>
                 </Navbar.Collapse>
             </Container>

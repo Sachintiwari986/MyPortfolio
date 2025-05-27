@@ -28,16 +28,14 @@ function App() {
 
 
   const [darkMode, setDarkMode] = useState(false);
-
-  const toggleTheme = () => {
-    setDarkMode(!darkMode);
-  };
+  const toggleTheme = () => setDarkMode(prev => !prev);
 
   return (
-    <>
-
+    <div className={darkMode ? 'bg-dark text-light' : 'bg-light text-dark'}>
       <Navbar
         scrollToSection={scrollToSection}
+        toggleTheme={toggleTheme}
+        darkMode={darkMode}
         refs={{
           aboutRef,
           skillsRef,
@@ -47,7 +45,6 @@ function App() {
           contactRef
         }}
       />
-
       <div className="container mt-5">
         <div ref={aboutRef}><About /></div>
         <div ref={skillsRef}><Skills /></div>
@@ -55,20 +52,8 @@ function App() {
         <div ref={experienceRef}><Experience /></div>
         <div ref={educationRef}><Education /></div>
       </div>
-
       <div ref={contactRef}><Contact /></div>
-
-      {/* <Navbar /> */}
-
-      {/* <Header /> */}
-      {/* <About />
-      <Skills />
-      <Experience /> 
-      <Projects />
-      <Education />
-      <Contact /> */}
-
-    </>
+    </div>
   );
 }
 
