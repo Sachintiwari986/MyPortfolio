@@ -1,23 +1,21 @@
 function Education() {
     return (
-        <section>
-            <h2>Education</h2>
-            <ul>
-                <li>
-                    <strong>Loyalist College</strong>, Toronto, Canada
-                    <br />Postgraduate in Computer Software and Database Development
-                    <br />Expected Graduation: December 2025
-                </li>
-                <li>
-                    <strong>Tribhuvan University</strong>, Kathmandu, Nepal
-                    <br />BSc in Computer Science and IT – Graduated: Dec 2020
-                </li>
-            </ul>
-            <h3>Certifications</h3>
-            <ul>
-                <li>Web Designing (1.5 months corporate training)</li>
-                <li>DotNet MVC Course (3 months corporate training)</li>
-            </ul>
+        <section className="my-5">
+            <div className="container">
+                <h2 className="text-info mb-3">Education</h2>
+                <div className="card mb-3">
+                    <div className="card-body">
+                        <h5 className="card-title">Postgraduate in Computer Software and Database Development</h5>
+                        <p className="card-text">Loyalist College, Toronto, Canada — <strong>Expected Dec 2025</strong></p>
+                    </div>
+                </div>
+                <div className="card">
+                    <div className="card-body">
+                        <h5 className="card-title">BSc in CSIT</h5>
+                        <p className="card-text">Tribhuvan University, Kathmandu, Nepal — <strong>Graduated Dec 2020</strong></p>
+                    </div>
+                </div>
+            </div>
         </section>
     );
 }

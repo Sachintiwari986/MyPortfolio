@@ -32,7 +32,20 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
+}
+
+.app {
+  background-color: white;
+  color: black;
+  padding: 1rem;
+  font-family: sans-serif;
+}
+
+.dark {
+  background-color: #1a202c;
+  color: white;
 }

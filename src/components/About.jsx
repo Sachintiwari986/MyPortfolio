@@ -1,11 +1,13 @@
 function About() {
     return (
-        <section>
-            <h2>Summary</h2>
-            <p>
-                Full Stack Developer with 3+ years of experience in ASP.NET, React, and database development.
-                Skilled in building scalable applications and leading dev teams.
-            </p>
+        <section className="my-5">
+            <div className="container">
+                <h2 className="text-primary mb-3">About Me</h2>
+                <p className="lead">
+                    Full Stack Developer with 3+ years of experience in .NET Core, React, and database systems.
+                    I enjoy building scalable applications and leading development teams.
+                </p>
+            </div>
         </section>
     );
 }
